@@ -37,12 +37,12 @@ body{
 
 .text-input .to-text{
     border-radius: 0px;
-    border-left: 1px solid #ccc;
+    border-left:1px solid #ccc;
 }
 
-.text-input .textarea{
+.text-input textarea{
     height: 250px;
-    width: 100px;
+    width: 100%;
     border: none;
     outline: none;
     background: none;
@@ -66,11 +66,11 @@ body{
     padding: 12px 15px;
 }
 
-controls .row .icons{
+.controls .row .icons{
     width: 38%;
 }
 
-controls .row .icons i{
+.controls .row .icons i{
     width: 50px;
     color: #adadad;
     font-size: 14px;
@@ -123,9 +123,51 @@ controls .row .icons i{
     transform: transform 0.2s ease
 }
 
+.controls i:active{
+    transform: scale(0.9);
+}
 
+.container button{
+    width: 100%;
+    padding: 14px;
+    outline: none;
+    border:none;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 17px;
+    border-radius: 5px;
+    background: #5272F0;
+}
 
-
+@media(max-width:660px){
+    .container{
+        padding: 20px;
+    }
+    .wrapper .text-input{
+        flex-direction: column;
+    }
+    .text-input .to-text{
+        border-left: 0px;
+        border-top: 1px solid #ccc;
+    }
+    .text-input .textarea{
+        height: 200px;
+    }
+    .controls .row .icons{
+        display: none;
+    }
+    .container button{
+        padding: 13px;
+        font-size: 16px;
+    }
+    .controls .row select{
+        font-size: 16px;
+    }
+    .controls .exchange{
+        font-size: 14px;
+    }
+}
 
 
 

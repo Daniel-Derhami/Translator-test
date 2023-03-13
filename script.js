@@ -36,3 +36,21 @@ fromText.addEventListener("keyup", () => {
         toText.value = "";
     }
 });
+
+translateBtn.addEventListener("click", () => {
+    let text = fromText.value.trim(),
+    translateFrom = selectTag[0].value,
+    translateTo = selectTag[1].value;
+    if(!text) return;
+    toText.setAttribute("placeholder", "Translating...");
+    let apiUrl = `https://api.mymemory.translated.net/get?q=${text}&langpair=${translateFrom}|${translateTo}`;
+    fetch(apiUrl).then(res => res.json()).then(data => {
+        toText.value = data.responseData.translatedText;
+        data.matches.forEach(data => {
+            if(data.id === 0) {
+                toText.value = data.translation;
+            }
+        });
+        toText.setAttribute("placeholder", "Translation");
+    });
+});

@@ -37,6 +37,8 @@ fromText.addEventListener("keyup", () => {
     }
 });
 
+
+/* whenever the translate button clicks */
 translateBtn.addEventListener("click", () => {
 
     /*get the first text value (.value) and remove the white spaces in be beggining and the end of text (trim) */
@@ -49,9 +51,13 @@ translateBtn.addEventListener("click", () => {
     /* if there is no text in the input area, do nothing */
     if(!text) return;
 
-
+    /* after pushing trabslare button "translating..." appear in the field while the text is translating!  */
     toText.setAttribute("placeholder", "Translating...");
+
+    /* The API use for the mai part! Give the two values defined before and do its job */
     let apiUrl = `https://api.mymemory.translated.net/get?q=${text}&langpair=${translateFrom}|${translateTo}`;
+
+    /* If the api fetched, the codes ginf to be execude  */
     fetch(apiUrl).then(res => res.json()).then(data => {
         toText.value = data.responseData.translatedText;
         data.matches.forEach(data => {

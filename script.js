@@ -38,10 +38,18 @@ fromText.addEventListener("keyup", () => {
 });
 
 translateBtn.addEventListener("click", () => {
+
+    /*get the first text value (.value) and remove the white spaces in be beggining and the end of text (trim) */
     let text = fromText.value.trim(),
+
+
     translateFrom = selectTag[0].value,
     translateTo = selectTag[1].value;
+
+    /* if there is no text in the input area, do nothing */
     if(!text) return;
+
+
     toText.setAttribute("placeholder", "Translating...");
     let apiUrl = `https://api.mymemory.translated.net/get?q=${text}&langpair=${translateFrom}|${translateTo}`;
     fetch(apiUrl).then(res => res.json()).then(data => {

@@ -57,8 +57,10 @@ translateBtn.addEventListener("click", () => {
     /* The API use for the mai part! Give the two values defined before and do its job */
     let apiUrl = `https://api.mymemory.translated.net/get?q=${text}&langpair=${translateFrom}|${translateTo}`;
 
-    /* If the api fetched, the codes ginf to be execude  */
+    /* If the api fetched, the codes going to be execude  */
     fetch(apiUrl).then(res => res.json()).then(data => {
+
+        /*store the responded data */
         toText.value = data.responseData.translatedText;
         data.matches.forEach(data => {
             if(data.id === 0) {
